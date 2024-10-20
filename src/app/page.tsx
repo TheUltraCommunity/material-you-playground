@@ -20,6 +20,15 @@ import {
   TopAppBarMedium,
   TopAppBarSmall,
   useScaffoldHost,
+  // Tab,
+  // TabPrimary,
+  // TabSecondary,
+  OneLineList,
+  TwoLineList,
+  ThreeLineList,
+  MaterialImage,
+  MaterialThumbnail,
+  RadioButton,
 } from "material-you-react";
 
 export default function DefaultPage() {
@@ -41,6 +50,25 @@ export default function DefaultPage() {
             trailingIcons={["search", "more_vert"]}
             leadingIcon="arrow_back"
           />
+          {/* Primary Tabs */}
+          {/* <Tab>
+            <TabPrimary active={true} label="Flights" icon="flight" badge="22" />
+            <TabPrimary label="Suitcase" icon="work" />
+            <TabPrimary label="Search" icon="search" badge="222" />
+            <TabPrimary label="Explore" icon="explore" />
+          </Tab> */}
+
+          {/* Secondary Tabs */}
+          {/* <Tab>
+            <TabSecondary active={true} label="Flights" badge="2" icon="flight" />
+            <TabSecondary label="Suitcase" icon="work" />
+          </Tab> */}
+
+          {/* Secondary Tabs */}
+          {/* <Tab>
+        <TabSecondary active={true} label="Flights" badge="2" />
+        <TabSecondary label="Suitcase" />
+      </Tab> */}
           <div className="flex flex-wrap">
             <div className="p-4 border border-dashed w-max flex flex-col gap-3 mx-2 my-5 mb-0">
               <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
@@ -51,19 +79,19 @@ export default function DefaultPage() {
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-4">
-                <ElevatedButton icon="globe">
+                <ElevatedButton onClickCallback={() => { }} icon="globe">
                   <p>Elevated</p>
                 </ElevatedButton>
-                <FilledButton icon="duo">
+                <FilledButton onClickCallback={() => { }} icon="duo">
                   <p>Filled</p>
                 </FilledButton>
-                <FilledTonalButton icon="flutter">
+                <FilledTonalButton onClickCallback={() => { }} icon="flutter">
                   <p>Filled Tonal</p>
                 </FilledTonalButton>
-                <OutlinedButton icon="self_improvement">
+                <OutlinedButton onClickCallback={() => { }} icon="self_improvement">
                   <p>Outlined</p>
                 </OutlinedButton>
-                <TextButton onPressed={() => {}} icon="text_fields">
+                <TextButton onClickCallback={() => { }} icon="text_fields">
                   <p>Text</p>
                 </TextButton>
               </div>
@@ -76,11 +104,12 @@ export default function DefaultPage() {
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <FilledTextField labelText="Hello" />
+                <FilledTextField labelText="Hello" value={""} onValueChange={() => { }} />
                 <OutlinedTextField
                   labelText="Outlined"
-                  leadingIcon="account_circle"
-                />
+                  leadingIcon="account_circle" value={""} onValueChange={function (value: string): void {
+                    throw new Error("Function not implemented.");
+                  }} />
               </div>
             </div>
             <div className="p-4 border border-dashed w-max flex flex-col gap-3 mx-2 my-5">
@@ -100,8 +129,8 @@ export default function DefaultPage() {
                       checkBoxValue === false
                         ? null
                         : checkBoxValue === null
-                        ? true
-                        : false
+                          ? true
+                          : false
                     );
                   }}
                 />
@@ -112,15 +141,15 @@ export default function DefaultPage() {
                       checkBoxValue === false
                         ? null
                         : checkBoxValue === null
-                        ? true
-                        : false
+                          ? true
+                          : false
                     );
                   }}
                 />
                 <Checkbox
                   value={checkBoxValue}
                   disabled
-                  onChange={(val: any) => {}}
+                  onChange={(val: any) => { }}
                 />
               </div>
             </div>
@@ -208,6 +237,135 @@ export default function DefaultPage() {
                 >
                   Show Snackbar
                 </button>
+              </div>
+            </div>
+            <div className="p-4 border border-dashed w-[90%] flex flex-col gap-3 mx-2 my-5">
+              <div>
+                <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
+                  <h3 className="text-xl font-medium">Lists</h3>
+                  <h3 className="text-xl font-medium">One Line Lists</h3>
+                  <p className="max-w-[40ch]">
+                    Lists are continuous, vertical indexes of text and images
+                  </p>
+                </div>
+                <div>
+                  <OneLineList headline="Headline" />
+                  <OneLineList leadingIcon="person" headline="Leading Icon" />
+                  <OneLineList leadingAvatarLabel="C" headline="Labled Avatar" />
+                  <OneLineList headline="Leading Image">
+                    <MaterialImage>
+                      <img src="/me.jpg" alt="me profile" />
+                    </MaterialImage>
+                  </OneLineList>
+                  <OneLineList headline="Leading Video Thumbnail">
+                    <MaterialThumbnail>
+                      <img src="https://plus.unsplash.com/premium_photo-1724824053224-40d726301acf?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="black-white" />
+                    </MaterialThumbnail>
+                  </OneLineList>
+
+                  <OneLineList headline="Trailing Icon" trailingIcon="security" />
+                  <OneLineList headline="Trailing Supporting text" trailingSupportingText="+100" />
+                  <OneLineList headline="Trailing children">
+                    <div slot={'end'}>
+                      <Checkbox />
+                    </div>
+                  </OneLineList>
+                  <OneLineList headline="Checkbox at starting">
+                    <div slot={'start'}>
+                      <Checkbox />
+                    </div>
+                  </OneLineList>
+                  <OneLineList headline="Checkbox at starting">
+                    <div slot={'start'}>
+                      <RadioButton selected={true} onClick={() => { }} />
+                    </div>
+                  </OneLineList>
+                </div>
+              </div>
+              <div>
+                <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
+                  <h3 className="text-xl font-medium">Two line Lists</h3>
+                  <p className="max-w-[40ch]">
+                    Lists are continuous, vertical indexes of text and images
+                  </p>
+                </div>
+                <div>
+                  <TwoLineList supportingText={'Suppourting TextSuppourting TextSuppourting Text Suppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextTextSuppourtingTextSuppourtingTextSuppourtingTextSuppourting'} headline="Headline" />
+                  <TwoLineList leadingIcon="person" supportingText={'Suppourting Text'} headline="Leading Icon" />
+                  <TwoLineList leadingAvatarLabel="C" supportingText={'Suppourting Text'} headline="Labled Avatar" />
+                  <TwoLineList supportingText={'Suppourting Text'} headline="Leading Image">
+                    <MaterialImage>
+                      <img src="/me.jpg" alt="me profile" />
+                    </MaterialImage>
+                  </TwoLineList>
+                  <TwoLineList supportingText={'Suppourting Text'} headline="Leading Video Thumbnail">
+                    <MaterialThumbnail>
+                      <img src="https://plus.unsplash.com/premium_photo-1724824053224-40d726301acf?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="black-white" />
+                    </MaterialThumbnail>
+                  </TwoLineList>
+
+                  <TwoLineList supportingText={'Suppourting Text'} headline="Trailing Icon" trailingIcon="security" />
+                  <TwoLineList supportingText={'Suppourting Text'} headline="Trailing Supporting text" trailingSupportingText="+100" />
+                  <TwoLineList supportingText={'Suppourting TextSuppourting TextSuppourting Text Suppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextTextSuppourtingTextSuppourtingTextSuppourtingTextSuppourting'} headline="Trailing children">
+                    <div slot={'end'}>
+                      <Checkbox />
+                    </div>
+                  </TwoLineList>
+                  <TwoLineList supportingText={'Suppourting Text'} headline="Checkbox at starting">
+                    <div slot={'start'}>
+                      <Checkbox />
+                    </div>
+                  </TwoLineList>
+                  <TwoLineList supportingText={'Suppourting Text'} headline="Checkbox at starting">
+                    <div slot={'start'}>
+                      <RadioButton selected={true} onClick={() => { }} />
+                    </div>
+                  </TwoLineList>
+                </div>
+              </div>
+              <div>
+                <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
+                  <h3 className="text-xl font-medium">Three line Lists</h3>
+                  <p className="max-w-[40ch]">
+                    Lists are continuous, vertical indexes of text and images
+                  </p>
+                </div>
+                <div>
+                  <ThreeLineList supportingText={'Suppourting Text Suppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting Text'} headline="Headline" />
+                  <ThreeLineList leadingIcon="person" supportingText={'Suppourting Text'} headline="Leading Icon" />
+                  <ThreeLineList leadingAvatarLabel="C" supportingText={'Suppourting Text'} headline="Labled Avatar" />
+                  <ThreeLineList supportingText={'Suppourting Text'} headline="Leading Image">
+                    <MaterialImage>
+                      <img src="/me.jpg" alt="me profile" />
+                    </MaterialImage>
+                  </ThreeLineList>
+                  <ThreeLineList supportingText={'Suppourting Text'} headline="Leading Video Thumbnail">
+                    <MaterialThumbnail>
+                      <img src="https://plus.unsplash.com/premium_photo-1724824053224-40d726301acf?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="black-white" />
+                    </MaterialThumbnail>
+                  </ThreeLineList>
+
+                  <ThreeLineList supportingText={'Suppourting Text'} headline="Trailing Icon" trailingIcon="security" />
+                  <ThreeLineList supportingText={'Suppourting TextSuppourting Text Suppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextTextSuppourtingTextSuppourtingTextSuppourtingTextSuppourting'} headline="Trailing Supporting text" trailingSupportingText="+100" />
+                  <ThreeLineList supportingText={'Suppourting TextSuppourting TextSuppourting Text Suppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextTextSuppourtingTextSuppourtingTextSuppourtingTextSuppourting'} headline="Trailing children">
+                    <div slot={'end'}>
+                      <Checkbox />
+                    </div>
+                  </ThreeLineList>
+                  <ThreeLineList supportingText={'Suppourting Text'} headline="Checkbox at starting">
+                    <div slot={'start'}>
+                      <Checkbox />
+                    </div>
+                  </ThreeLineList>
+                  <ThreeLineList supportingText={'Suppourting TextSuppourting TextSuppourting Text Suppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextTextSuppourtingTextSuppourtingTextSuppourtingTextSuppourting'} headline="Checkbox at starting">
+                    <div slot={'start'}>
+                      <RadioButton selected={true} onClick={() => { }} />
+                    </div>
+                  </ThreeLineList>
+                </div>
               </div>
             </div>
           </div>

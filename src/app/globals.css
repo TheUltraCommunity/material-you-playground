@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '~material-you-react/dist/esm/index.css';
+/* @import '~material-you-react/dist/esm/index.css'; */
+@import '~material-you-react/src/globals.css';
+
 
 
 :root{
