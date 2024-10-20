@@ -51,19 +51,19 @@ export default function DefaultPage() {
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-4">
-                <ElevatedButton icon="globe">
+                <ElevatedButton onClickCallback={() => {}} icon="globe">
                   <p>Elevated</p>
                 </ElevatedButton>
-                <FilledButton icon="duo">
+                <FilledButton onClickCallback={() => {}} icon="duo">
                   <p>Filled</p>
                 </FilledButton>
-                <FilledTonalButton icon="flutter">
+                <FilledTonalButton onClickCallback={() => {}} icon="flutter">
                   <p>Filled Tonal</p>
                 </FilledTonalButton>
-                <OutlinedButton icon="self_improvement">
+                <OutlinedButton onClickCallback={() => {}} icon="self_improvement">
                   <p>Outlined</p>
                 </OutlinedButton>
-                <TextButton onPressed={() => {}} icon="text_fields">
+                <TextButton onClickCallback={() => {}}  icon="text_fields">
                   <p>Text</p>
                 </TextButton>
               </div>
@@ -76,11 +76,14 @@ export default function DefaultPage() {
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <FilledTextField labelText="Hello" />
+                <FilledTextField labelText="Hello" value={""} onValueChange={function (value: string): void {
+                  throw new Error("Function not implemented.");
+                } } />
                 <OutlinedTextField
                   labelText="Outlined"
-                  leadingIcon="account_circle"
-                />
+                  leadingIcon="account_circle" value={""} onValueChange={function (value: string): void {
+                    throw new Error("Function not implemented.");
+                  } }                />
               </div>
             </div>
             <div className="p-4 border border-dashed w-max flex flex-col gap-3 mx-2 my-5">
