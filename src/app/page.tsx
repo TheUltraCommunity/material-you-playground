@@ -20,14 +20,14 @@ import {
   TopAppBarMedium,
   TopAppBarSmall,
   useScaffoldHost,
-  // Tab,
-  // TabPrimary,
-  // TabSecondary,
-  OneLineList,
-  TwoLineList,
-  ThreeLineList,
-  MaterialImage,
-  MaterialThumbnail,
+  Tab,
+  TabPrimary,
+  TabSecondary,
+  // OneLineList,
+  // TwoLineList,
+  // ThreeLineList,
+  // MaterialImage,
+  // MaterialThumbnail,
   RadioButton,
 } from "material-you-react";
 
@@ -51,23 +51,41 @@ export default function DefaultPage() {
             leadingIcon="arrow_back"
           />
           {/* Primary Tabs */}
-          {/* <Tab>
-            <TabPrimary active={true} label="Flights" icon="flight" badge="22" />
-            <TabPrimary label="Suitcase" icon="work" />
-            <TabPrimary label="Search" icon="search" badge="222" />
-            <TabPrimary label="Explore" icon="explore" />
-          </Tab> */}
+          <Tab>
+            <TabPrimary onClickCallback={() => {}} active={true} label="Flights" icon="flight" badge="22" />
+            <TabPrimary onClickCallback={() => {}} label="Suitcase" icon="work" />
+            <TabPrimary onClickCallback={() => {}} label="Search" icon="search" badge="222" />
+            <TabPrimary onClickCallback={() => {}} label="Settings" icon="settings" />
+            <TabPrimary onClickCallback={() => {}} label="Favorite" icon="favorite" />
+            <TabPrimary onClickCallback={() => {}} label="Add" icon="add" />
+            <TabPrimary onClickCallback={() => {}} label="Star" icon="star" />
+            <TabPrimary onClickCallback={() => {}} label="Download" icon="download" />
+          </Tab>
+          <Tab>
+            <TabPrimary onClickCallback={() => {}} active={true} label="Flights" icon="flight" badge="22" />
+            <TabPrimary onClickCallback={() => {}} label="Suitcase" icon="work" />
+            <TabPrimary onClickCallback={() => {}} label="Search" icon="search" badge="222" />
+          </Tab>
+
+          {/* Secondary Tabs */}
+          <Tab>
+            <TabSecondary onClickCallback={() => {}} active={true} label="Flights" icon="flight" badge="97"/>
+            <TabSecondary onClickCallback={() => {}} label="Suitcase" icon="work" badge="+999" />
+          </Tab>
+          <Tab>
+            <TabSecondary onClickCallback={() => {}} active={true} label="Flights" icon="flight" />
+            <TabSecondary onClickCallback={() => {}} label="Suitcase" icon="work" />
+            <TabSecondary onClickCallback={() => {}} label="Settings" icon="settings" />
+            <TabSecondary onClickCallback={() => {}} label="Favorite" icon="favorite" />
+            <TabSecondary onClickCallback={() => {}} label="Add" icon="add" />
+            <TabSecondary onClickCallback={() => {}} label="Star" icon="star" />
+            <TabSecondary onClickCallback={() => {}} label="Download" icon="download" />
+          </Tab>
 
           {/* Secondary Tabs */}
           {/* <Tab>
-            <TabSecondary active={true} label="Flights" badge="2" icon="flight" />
-            <TabSecondary label="Suitcase" icon="work" />
-          </Tab> */}
-
-          {/* Secondary Tabs */}
-          {/* <Tab>
-        <TabSecondary active={true} label="Flights" badge="2" />
-        <TabSecondary label="Suitcase" />
+        <TabSecondary onClickCallback={() => {}} active={true} label="Flights" badge="2" />
+        <TabSecondary onClickCallback={() => {}} label="Suitcase" />
       </Tab> */}
           <div className="flex flex-wrap">
             <div className="p-4 border border-dashed w-max flex flex-col gap-3 mx-2 my-5 mb-0">
@@ -248,7 +266,7 @@ export default function DefaultPage() {
                     Lists are continuous, vertical indexes of text and images
                   </p>
                 </div>
-                <div>
+                {/* <div>
                   <OneLineList headline="Headline" />
                   <OneLineList leadingIcon="person" headline="Leading Icon" />
                   <OneLineList leadingAvatarLabel="C" headline="Labled Avatar" />
@@ -281,7 +299,7 @@ export default function DefaultPage() {
                       <RadioButton selected={true} onClick={() => { }} />
                     </div>
                   </OneLineList>
-                </div>
+                </div> */}
               </div>
               <div>
                 <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
@@ -290,7 +308,7 @@ export default function DefaultPage() {
                     Lists are continuous, vertical indexes of text and images
                   </p>
                 </div>
-                <div>
+                {/* <div>
                   <TwoLineList supportingText={'Suppourting TextSuppourting TextSuppourting Text Suppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextTextSuppourtingTextSuppourtingTextSuppourtingTextSuppourting'} headline="Headline" />
                   <TwoLineList leadingIcon="person" supportingText={'Suppourting Text'} headline="Leading Icon" />
                   <TwoLineList leadingAvatarLabel="C" supportingText={'Suppourting Text'} headline="Labled Avatar" />
@@ -323,7 +341,7 @@ export default function DefaultPage() {
                       <RadioButton selected={true} onClick={() => { }} />
                     </div>
                   </TwoLineList>
-                </div>
+                </div> */}
               </div>
               <div>
                 <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
@@ -332,7 +350,7 @@ export default function DefaultPage() {
                     Lists are continuous, vertical indexes of text and images
                   </p>
                 </div>
-                <div>
+                {/* <div>
                   <ThreeLineList supportingText={'Suppourting Text Suppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting TextSuppourting Text'} headline="Headline" />
                   <ThreeLineList leadingIcon="person" supportingText={'Suppourting Text'} headline="Leading Icon" />
                   <ThreeLineList leadingAvatarLabel="C" supportingText={'Suppourting Text'} headline="Labled Avatar" />
@@ -365,7 +383,7 @@ export default function DefaultPage() {
                       <RadioButton selected={true} onClick={() => { }} />
                     </div>
                   </ThreeLineList>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
