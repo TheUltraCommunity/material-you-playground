@@ -20,6 +20,7 @@ import {
   TopAppBarMedium,
   TopAppBarSmall,
   useScaffoldHost,
+  Switch
 } from "material-you-react";
 
 export default function DefaultPage() {
@@ -211,6 +212,22 @@ export default function DefaultPage() {
                 >
                   Show Snackbar
                 </button>
+              </div>
+            </div>
+            <div className="p-4 border border-dashed w-max flex flex-col gap-3 mx-2 my-5">
+              <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
+                <h3 className="text-xl font-medium">Switch</h3>
+                <p className="max-w-[40ch]">
+                  Switches toggle the selection of an item on or off
+                </p>
+              </div>
+              <div className="grid grid-cols-3 gap-5">
+                <Switch mode="ON"/>
+                <Switch mode="OFF"/>
+                <Switch mode="OFF" onIcon/>
+                <Switch mode="OFF" offIcon/>
+                <Switch mode="OFF" offIcon onIcon disable/>
+                <Switch mode="OFF" offIcon onIcon/>
               </div>
             </div>
           </div>
