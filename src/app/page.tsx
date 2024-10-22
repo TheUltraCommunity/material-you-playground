@@ -20,6 +20,8 @@ import {
   TopAppBarMedium,
   TopAppBarSmall,
   useScaffoldHost,
+  Menu,
+  MenuItem
 } from "material-you-react";
 
 export default function DefaultPage() {
@@ -51,19 +53,19 @@ export default function DefaultPage() {
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-4">
-                <ElevatedButton onClickCallback={() => {}} icon="globe">
+                <ElevatedButton onClickCallback={() => { }} icon="globe">
                   <p>Elevated</p>
                 </ElevatedButton>
-                <FilledButton onClickCallback={() => {}} icon="duo">
+                <FilledButton onClickCallback={() => { }} icon="duo">
                   <p>Filled</p>
                 </FilledButton>
-                <FilledTonalButton onClickCallback={() => {}} icon="flutter">
+                <FilledTonalButton onClickCallback={() => { }} icon="flutter">
                   <p>Filled Tonal</p>
                 </FilledTonalButton>
-                <OutlinedButton onClickCallback={() => {}} icon="self_improvement">
+                <OutlinedButton onClickCallback={() => { }} icon="self_improvement">
                   <p>Outlined</p>
                 </OutlinedButton>
-                <TextButton onClickCallback={() => {}}  icon="text_fields">
+                <TextButton onClickCallback={() => { }} icon="text_fields">
                   <p>Text</p>
                 </TextButton>
               </div>
@@ -78,12 +80,12 @@ export default function DefaultPage() {
               <div className="grid grid-cols-2 gap-4">
                 <FilledTextField labelText="Hello" value={""} onValueChange={function (value: string): void {
                   throw new Error("Function not implemented.");
-                } } />
+                }} />
                 <OutlinedTextField
                   labelText="Outlined"
                   leadingIcon="account_circle" value={""} onValueChange={function (value: string): void {
                     throw new Error("Function not implemented.");
-                  } }                />
+                  }} />
               </div>
             </div>
             <div className="p-4 border border-dashed w-max flex flex-col gap-3 mx-2 my-5">
@@ -103,8 +105,8 @@ export default function DefaultPage() {
                       checkBoxValue === false
                         ? null
                         : checkBoxValue === null
-                        ? true
-                        : false
+                          ? true
+                          : false
                     );
                   }}
                 />
@@ -115,15 +117,15 @@ export default function DefaultPage() {
                       checkBoxValue === false
                         ? null
                         : checkBoxValue === null
-                        ? true
-                        : false
+                          ? true
+                          : false
                     );
                   }}
                 />
                 <Checkbox
                   value={checkBoxValue}
                   disabled
-                  onChange={(val: any) => {}}
+                  onChange={(val: any) => { }}
                 />
               </div>
             </div>
@@ -213,8 +215,85 @@ export default function DefaultPage() {
                 </button>
               </div>
             </div>
-          </div>
 
+          </div>
+          <div className="flex justify-center items-center mx-auto mb-20">
+              <Menu>
+                <MenuItem
+                  leadingIcon={"delete"}
+                  label={"Delete"}
+                  trailingText={"del"}
+                />
+                <MenuItem
+                  leadingIcon={"logout"}
+                  trailingIcon={"check"}
+                  label={"Logout"}
+                  trailingText={""}
+                  disable
+                />
+                <MenuItem
+                  leadingIcon={"note_stack"}
+                  trailingIcon={"More Options"}
+                  label={"Child"}
+                  trailingText={""}
+                >
+                  <Menu>
+                    <MenuItem
+                      leadingIcon={"grade"}
+                      label={"Grade"}
+                      trailingText={""}
+                    />
+                    <MenuItem
+                      leadingIcon={"apps"}
+                      label={"Apps"}
+                      trailingText={""}
+                    >
+                      <Menu>
+                        <MenuItem
+                        leadingIcon={"bolt"}
+                        label={"Bolt"}
+                        trailingText={"ctlr+A"}
+                        />
+                      </Menu>
+                    </MenuItem>
+                    <MenuItem
+                      leadingIcon={"key"}
+                      label={"Key"}
+                      trailingText={""}
+                    />
+                  </Menu>
+                </MenuItem>
+                <MenuItem
+                  leadingIcon={"open_run"}
+                  label={"Open Run"}
+                  trailingText={""}
+                />
+                <Divider type="horizontal" variant="fullWidth" />
+                <MenuItem
+                  leadingIcon={"open_run"}
+                  label={"Open Run"}
+                  trailingText={"cltr+R"}
+                />
+                <MenuItem
+                  leadingIcon={"table"}
+                  label={"Table"}
+                  trailingText={""}
+                  disable
+                />
+                <MenuItem
+                  leadingIcon={"image"}
+                  label={"Image"}
+                  trailingText={""}
+                  disable
+                />
+                <MenuItem
+                  leadingIcon={"dashboard"}
+                  label={"Dashboard"}
+                  trailingText={""}
+                  disable
+                />
+              </Menu>
+            </div>
           <div className="h-16" />
         </div>
       )}
