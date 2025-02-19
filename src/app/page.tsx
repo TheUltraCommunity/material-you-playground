@@ -21,16 +21,36 @@ import {
   TopAppBarSmall,
   useScaffoldHost,
   Menu,
-  MenuItem
+  MenuItem,
+  LinearProgress,
+  CircularProgress
 } from "material-you-react";
 
 export default function DefaultPage() {
   const [checkBoxValue, setCheckBoxValue] = useState<boolean | null>(false);
   const [inputField, setInputField] = useState<string>('');
+  const [progress, setProgress] = useState<number>(0);
 
   const handleInputFieldChange = (value: string) => {
     setInputField(value);
   }
+
+  useEffect(() => {
+    if (progress < 100) {
+      const interval = setInterval(() => {
+        setProgress((prev) => {
+          if (prev >= 100) {
+            clearInterval(interval);
+            return 100;
+          }
+          return prev + 10;
+        });
+      }, 100);
+
+      return () => clearInterval(interval);
+    }
+  }, [progress]);
+
   return (
     <Scaffold
       bottomAppBar={
@@ -74,6 +94,17 @@ export default function DefaultPage() {
                   <p>Text</p>
                 </TextButton>
               </div>
+            </div>
+            <div className="p-4 border border-dashed w-max flex flex-col gap-3 mx-2 my-5">
+              <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
+                <h3 className="text-xl font-medium">Progress Indicator</h3>
+                <p className="max-w-[40ch]">
+                  Progress Indicators are essential UI components used for API calls and to show user under the hood something is beign cooked.
+                </p>
+              </div>
+              <LinearProgress percentage={progress} />
+              {/* <CircularProgress percentage={progress}/> */}
+              <CircularProgress indeterminate={true}/>
             </div>
             <div className="bg-blue-200 p-4 border border-dashed w-max flex flex-col gap-3 mx-2 my-5">
               <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
@@ -304,7 +335,7 @@ export default function DefaultPage() {
             </Menu>
           </div>
           <div className="flex flex-col justify-center items-center mx-auto mb-20">
-            <h3 className="text-xl font-medium text-white">Menus-scrollable</h3>              
+            <h3 className="text-xl font-medium text-white">Menus-scrollable</h3>
             <Menu displayLimit={5}>
               <MenuItem
                 leadingIcon={"delete"}
