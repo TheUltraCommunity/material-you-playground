@@ -222,12 +222,24 @@ export default function DefaultPage() {
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-5">
-                <Switch mode="ON"/>
-                <Switch mode="OFF"/>
-                <Switch mode="OFF" onIcon/>
-                <Switch mode="OFF" offIcon/>
-                <Switch mode="OFF" offIcon onIcon disable/>
-                <Switch mode="OFF" offIcon onIcon/>
+                <Switch mode="ON" onClickCallback={function (params: unknown): void {
+                  throw new Error("Function not implemented.");
+                } }/>
+                <Switch mode="OFF" onClickCallback={function (params: unknown): void {
+                  throw new Error("Function not implemented.");
+                } }/>
+                <Switch mode="OFF" onIcon onClickCallback={function (params: unknown): void {
+                  throw new Error("Function not implemented.");
+                } }/>
+                <Switch mode="OFF" offIcon onClickCallback={function (params: unknown): void {
+                  throw new Error("Function not implemented.");
+                } }/>
+                <Switch mode="OFF" offIcon onIcon disable onClickCallback={function (params: unknown): void {
+                  throw new Error("Function not implemented.");
+                } }/>
+                <Switch mode="OFF" offIcon onIcon onClickCallback={function (params: unknown): void {
+                  throw new Error("Function not implemented.");
+                } }/>
               </div>
             </div>
           </div>
