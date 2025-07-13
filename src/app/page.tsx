@@ -20,10 +20,13 @@ import {
   TopAppBarMedium,
   TopAppBarSmall,
   useScaffoldHost,
+  Slider
 } from "material-you-react";
 
 export default function DefaultPage() {
   const [checkBoxValue, setCheckBoxValue] = useState<boolean | null>(false);
+  const [slidervalue, setSliderValue] = useState<number>(50);
+
   return (
     <Scaffold
       bottomAppBar={
@@ -67,6 +70,22 @@ export default function DefaultPage() {
                   <p>Text</p>
                 </TextButton>
               </div>
+            </div>
+            <div className="p-4 border border-dashed w-max flex flex-col gap-3 mx-2 my-5 mb-0">
+              <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
+                <h3 className="text-xl font-medium">Sliders</h3>
+                <p className="max-w-[40ch]">
+                  Sliders--Sliders--Sliders--Sliders--Sliders--Sliders--
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-6">
+                <Slider onChange={(value) => setSliderValue(value)}/>
+                <Slider onChange={(value) => setSliderValue(value)} label={"Ringtone"} leadingIcon={"Notifications"}/>
+                <Slider onChange={(value) => setSliderValue(value)} leadingIcon={"Notifications"}/>
+                <Slider onChange={(value) => setSliderValue(value)} label={"Brightness"}/>
+              
+                <Slider onChange={(value) => setSliderValue(value)} label={"Disabled"} disable={true}/>
+                </div>
             </div>
             <div className="p-4 border border-dashed w-max flex flex-col gap-3 mx-2 my-5">
               <div className="mb-4  text-[rgb(var(--md-sys-color-on-background))]">
